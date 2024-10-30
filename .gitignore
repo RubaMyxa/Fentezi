@@ -57,4 +57,11 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
+UserSettings
+Assets/Plugins
+Assets/Plugins.meta
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+UserSettings/EditorUserSettings.asset
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+UserSettings/Layouts/default-6000.dwlt
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset.meta
