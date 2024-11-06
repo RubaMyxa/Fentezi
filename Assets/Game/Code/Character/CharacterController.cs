@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     private LayerMask whatIsGround;
     [Space]
     [SerializeField]
+    private bool airControl;
+    [SerializeField]
     private float movementSpeed;
     [SerializeField]
     private float jumpForce;
@@ -38,7 +40,7 @@ public class CharacterController : MonoBehaviour
 
     public void Move(float move, bool jump)
     {
-        if (grounded)
+        if (grounded || airControl)
         {
             Vector3 targetVelocity = new Vector2(move * movementSpeed, rigidbody.linearVelocityY);
             rigidbody.linearVelocity = Vector3.SmoothDamp(rigidbody.linearVelocity, targetVelocity, ref currentVelocity, 0.05f);

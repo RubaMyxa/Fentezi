@@ -4544,6 +4544,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  airControl: 1
   movementSpeed: 5
   jumpForce: 370
 --- !u!95 &2032394550
