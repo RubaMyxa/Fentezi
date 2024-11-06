@@ -49,5 +49,14 @@ public class CharacterController : MonoBehaviour
             grounded = false;
             rigidbody.AddForce(new Vector2(0, jumpForce));
         }
+
+        if (move < 0)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (move > 0)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
     }
 }

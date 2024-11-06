@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
-        float horizonal = Input.GetAxis("Horizontal");
+        float horizonal = Input.GetAxis("Horizontal"); // -1 to 1
         bool jump = Input.GetKeyDown("space");
 
         characterController.Move(horizonal, jump);
