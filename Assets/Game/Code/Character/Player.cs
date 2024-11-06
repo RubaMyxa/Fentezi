@@ -5,6 +5,9 @@ public class Player : MonoBehaviour
     private CharacterController characterController;
     private Animator animator;
 
+    private int HorizontalHash = Animator.StringToHash("horizontal");
+    private int AttackHash = Animator.StringToHash("Attack");
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -14,6 +17,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Movement();
+        Attact();
     }
 
     private void Movement()
@@ -21,8 +25,16 @@ public class Player : MonoBehaviour
         float horizonal = Input.GetAxis("Horizontal"); // -1 to 1
         bool jump = Input.GetKeyDown("space");
 
-        animator.SetFloat("horizontal", Mathf.Abs(horizonal));
+        animator.SetFloat(HorizontalHash, Mathf.Abs(horizonal));
 
         characterController.Move(horizonal, jump);
+    }
+
+    private void Attact()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && animator.GetCurrentAnimatorStateInfo(0).fullPathHash != AttackHash)
+        {
+            animator.SetTrigger(AttackHash);
+        }
     }
 }
