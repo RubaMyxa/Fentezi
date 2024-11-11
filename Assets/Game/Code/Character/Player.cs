@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Movement();
-        Attact();
+        Attack();
     }
 
     private void Movement()
@@ -30,10 +30,11 @@ public class Player : MonoBehaviour
         characterController.Move(horizonal, jump);
     }
 
-    private void Attact()
+    private void Attack()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && animator.GetCurrentAnimatorStateInfo(0).fullPathHash != AttackHash)
         {
+            print(animator.GetCurrentAnimatorStateInfo(0).fullPathHash + " | " + AttackHash);
             animator.SetTrigger(AttackHash);
         }
     }
