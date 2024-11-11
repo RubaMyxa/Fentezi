@@ -1,64 +1,67 @@
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+namespace Assets.Game.Code.Character
 {
-    [SerializeField]
-    private Transform groundPoint;
-    [SerializeField]
-    private LayerMask whatIsGround;
-    [Space]
-    [SerializeField]
-    private bool airControl;
-    [SerializeField]
-    private float movementSpeed;
-    [SerializeField]
-    private float jumpForce;
-
-    private Rigidbody2D rigidbody;
-
-    private bool grounded;
-    private Vector3 currentVelocity = Vector3.zero;
-
-    private void Awake()
+    public class CharacterController : MonoBehaviour
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-    }
+        [SerializeField]
+        private Transform groundPoint;
+        [SerializeField]
+        private LayerMask whatIsGround;
+        [Space]
+        [SerializeField]
+        private bool airControl;
+        [SerializeField]
+        private float movementSpeed;
+        [SerializeField]
+        private float jumpForce;
 
-    private void FixedUpdate()
-    {
-        grounded = false;
+        private Rigidbody2D rb;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundPoint.position, 0.1f, whatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        private bool grounded;
+        private Vector3 currentVelocity = Vector3.zero;
+
+        private void Awake()
         {
-            if (colliders[i].gameObject != gameObject)
-            {
-                grounded = true;
-            }
-        }
-    }
-
-    public void Move(float move, bool jump)
-    {
-        if (grounded || airControl)
-        {
-            Vector3 targetVelocity = new Vector2(move * movementSpeed, rigidbody.linearVelocityY);
-            rigidbody.linearVelocity = Vector3.SmoothDamp(rigidbody.linearVelocity, targetVelocity, ref currentVelocity, 0.05f);
+            rb = GetComponent<Rigidbody2D>();
         }
 
-        if(grounded && jump)
+        private void FixedUpdate()
         {
             grounded = false;
-            rigidbody.AddForce(new Vector2(0, jumpForce));
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundPoint.position, 0.1f, whatIsGround);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
+                {
+                    grounded = true;
+                }
+            }
         }
 
-        if (move < 0)
+        public void Move(float move, bool jump)
         {
-            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-        }
-        else if (move > 0)
-        {
-            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            if (grounded || airControl)
+            {
+                Vector3 targetVelocity = new Vector2(move * movementSpeed, rb.linearVelocityY);
+                rb.linearVelocity = Vector3.SmoothDamp(rb.linearVelocity, targetVelocity, ref currentVelocity, 0.05f);
+            }
+
+            if (grounded && jump)
+            {
+                grounded = false;
+                rb.AddForce(new Vector2(0, jumpForce));
+            }
+
+            if (move < 0)
+            {
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            }
+            else if (move > 0)
+            {
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            }
         }
     }
 }
