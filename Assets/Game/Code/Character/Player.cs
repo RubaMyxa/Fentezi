@@ -36,7 +36,6 @@ namespace Assets.Game.Code.Character
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && animator.GetCurrentAnimatorStateInfo(0).fullPathHash != AttackHash)
             {
-                print(animator.GetCurrentAnimatorStateInfo(0).fullPathHash + " | " + AttackHash);
                 animator.SetTrigger(AttackHash);
             }
         }
