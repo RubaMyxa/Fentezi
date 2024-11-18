@@ -1,9 +1,15 @@
+using Assets.Game.Code.Props;
 using UnityEngine;
 
 namespace Assets.Game.Code.Character
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField]
+        private Transform hitPoint;
+        [SerializeField]
+        private LayerMask hittableLayer;
+
         private CharacterController characterController;
         private Animator animator;
 
@@ -37,6 +43,18 @@ namespace Assets.Game.Code.Character
             if (Input.GetKeyDown(KeyCode.Mouse0) && animator.GetCurrentAnimatorStateInfo(0).fullPathHash != AttackHash)
             {
                 animator.SetTrigger(AttackHash);
+            }
+        }
+
+        private void Hit()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(hitPoint.position, 0.5f, hittableLayer);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
+                {
+                    colliders[i].GetComponent<Box>().TakeDamage();
+                }
             }
         }
     }
