@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2119694828336377647
+--- !u!1 &2263849555282208116
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6458262501236226675}
-  - component: {fileID: 4905013570375239136}
-  - component: {fileID: 7136179083120466337}
-  - component: {fileID: 8282078406622413078}
-  - component: {fileID: 1291586239753767834}
+  - component: {fileID: 533316345507674877}
+  - component: {fileID: 4016737714910719021}
+  - component: {fileID: 4557071402847952451}
+  - component: {fileID: 2567606196897850342}
+  - component: {fileID: 2963213712403629453}
   m_Layer: 7
-  m_Name: Break
+  m_Name: Burrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6458262501236226675
+--- !u!4 &533316345507674877
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119694828336377647}
+  m_GameObject: {fileID: 2263849555282208116}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.13, y: -0.5910325, z: 22.222633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4905013570375239136
+--- !u!212 &4016737714910719021
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119694828336377647}
+  m_GameObject: {fileID: 2263849555282208116}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,25 +78,25 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 109
-  m_Sprite: {fileID: 21300000, guid: dcea27f8885acb849b21f15db6cecd9d, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 6b6ad9307ab131f419383c15d6e41c76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.32, y: 1.52}
+  m_Size: {x: 2.12, y: 1.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7136179083120466337
+--- !u!61 &4557071402847952451
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119694828336377647}
+  m_GameObject: {fileID: 2263849555282208116}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -124,29 +124,29 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04, y: 0}
+  m_Offset: {x: 0.01, y: -0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.32, y: 1.52}
-    newSize: {x: 2.32, y: 1.52}
+    oldSize: {x: 2.12, y: 1.22}
+    newSize: {x: 2.12, y: 1.22}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.34, y: 0.94}
+  m_Size: {x: 0.98, y: 1.05}
   m_EdgeRadius: 0
---- !u!95 &8282078406622413078
+--- !u!95 &2567606196897850342
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119694828336377647}
+  m_GameObject: {fileID: 2263849555282208116}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9edd80d3fbdd5794182d36f1dd598c01, type: 2}
+  m_Controller: {fileID: 9100000, guid: b181e19521a575c4c841948cc0099e41, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -158,13 +158,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1291586239753767834
+--- !u!114 &2963213712403629453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119694828336377647}
+  m_GameObject: {fileID: 2263849555282208116}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e63827719cd50d940b7e472baecd4cbf, type: 3}
