@@ -1,8 +1,9 @@
+using Assets.Game.Code.Interfaces;
 using UnityEngine;
 
 namespace Assets.Game.Code.Props
 {
-    public class Box : MonoBehaviour
+    public class Box : MonoBehaviour, IDamageble
     {
         private Animator animator;
 

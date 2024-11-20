@@ -1,3 +1,4 @@
+using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.Props;
 using UnityEngine;
 
@@ -53,7 +54,7 @@ namespace Assets.Game.Code.Character
             {
                 if (colliders[i].gameObject != gameObject)
                 {
-                    colliders[i].GetComponent<Box>().TakeDamage();
+                    colliders[i].GetComponent<IDamageble>()?.TakeDamage();
                 }
             }
         }

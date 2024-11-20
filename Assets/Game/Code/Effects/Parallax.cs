@@ -16,7 +16,6 @@ namespace Assets.Game.Code.Effects
 
             startPos = transform.localPosition.x;
             spriteLength = GetComponent<SpriteRenderer>().bounds.size.x;
-            print(spriteLength);
         }
 
         private void Update()
