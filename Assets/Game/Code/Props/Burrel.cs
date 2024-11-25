@@ -7,6 +7,8 @@ namespace Assets.Game.Code.Props
     public class Burrel : MonoBehaviour, IDamageble
     {
         [SerializeField]
+        private GameObject coinPickup;
+        [SerializeField]
         private ProgressBar hpBar;
 
         private Animator animator;
@@ -24,11 +26,22 @@ namespace Assets.Game.Code.Props
 
             if (hp <= 0)
             {
-                animator.SetTrigger("TakeDamage");
-                Destroy(GetComponent<BoxCollider2D>());
+                Die();
             }
 
             hpBar.SetProgressBarAmount(1f / 100f * hp);
+        }
+
+        public void Die()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                GameObject coin = Instantiate(coinPickup);
+                coin.transform.position = transform.position;
+            }
+
+            animator.SetTrigger("TakeDamage");
+            Destroy(GetComponent<BoxCollider2D>());
         }
     }
 }
