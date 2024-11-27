@@ -7,15 +7,12 @@ namespace Assets.Game.Code.Props
         [SerializeField]
         private GameObject coinEffect;
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        public void Collect()
         {
-            if (collision.CompareTag("Player"))
-            {
-                Instantiate(coinEffect, gameObject.transform.position, Quaternion.identity);
+            Instantiate(coinEffect, gameObject.transform.position, Quaternion.identity);
 
-                Debug.Log("+1 coin");
-                Destroy(gameObject);
-            }
+            Debug.Log("+1 coin");
+            Destroy(gameObject);
         }
     }
 }

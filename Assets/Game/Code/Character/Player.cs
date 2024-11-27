@@ -29,6 +29,19 @@ namespace Assets.Game.Code.Character
             Attack();
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer != LayerMask.NameToLayer("PickupUnlock"))
+            {
+                return;
+            }
+
+            if (collision.CompareTag("Coin"))
+            {
+                collision.GetComponent<Coin>().Collect();
+            }
+        }
+
         private void Movement()
         {
             float horizonal = Input.GetAxis("Horizontal"); // -1 to 1

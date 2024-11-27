@@ -4,6 +4,9 @@ namespace Assets.Game.Code.Pickup
 {
     public class Pickup : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject realProp;
+
         private float timer = 0.2f;
 
         private Rigidbody2D rb;
@@ -24,10 +27,10 @@ namespace Assets.Game.Code.Pickup
 
             if (rb.linearVelocity.magnitude == 0)
             {
-                gameObject.layer = LayerMask.NameToLayer("PickupUnlock");
-                GetComponent<CircleCollider2D>().isTrigger = true;
-                Destroy(rb);
-                Destroy(this);
+                GameObject prop = Instantiate(realProp);
+                prop.transform.position = transform.position;
+
+                Destroy(gameObject);
             }
         }
     }
