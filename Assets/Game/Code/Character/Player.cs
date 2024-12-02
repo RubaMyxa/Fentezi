@@ -1,6 +1,9 @@
 using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.Props;
+using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Game.Code.Character
 {
@@ -16,6 +19,9 @@ namespace Assets.Game.Code.Character
 
         private int HorizontalHash = Animator.StringToHash("horizontal");
         private int AttackHash = Animator.StringToHash("Attack");
+        private int DieHash = Animator.StringToHash("Die");
+
+        private bool isAlive = true;
 
         private void Awake()
         {
@@ -44,6 +50,11 @@ namespace Assets.Game.Code.Character
 
         private void Movement()
         {
+            if (!isAlive)
+            {
+                return;
+            }
+
             float horizonal = Input.GetAxis("Horizontal"); // -1 to 1
             bool jump = Input.GetKeyDown("space");
 
@@ -54,6 +65,11 @@ namespace Assets.Game.Code.Character
 
         private void Attack()
         {
+            if (!isAlive)
+            {
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.Mouse0) && animator.GetCurrentAnimatorStateInfo(0).fullPathHash != AttackHash)
             {
                 animator.SetTrigger(AttackHash);
@@ -70,6 +86,21 @@ namespace Assets.Game.Code.Character
                     colliders[i].GetComponent<IDamageble>()?.TakeDamage();
                 }
             }
+        }
+
+        public void Die()
+        {
+            isAlive = false;
+
+            animator.SetTrigger(DieHash);
+            StartCoroutine(Respawn());
+        }
+
+        private IEnumerator Respawn()
+        {
+            yield return new WaitForSeconds(3f);
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
