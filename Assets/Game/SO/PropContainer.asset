@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PropContainer
   m_EditorClassIdentifier: 
   pickupCoin: {fileID: 7150225803848763681, guid: 2d5f31e9011ba024a81251c059cf3530, type: 3}
-  pickupKey: {fileID: 7150225803848763681, guid: 2d5f31e9011ba024a81251c059cf3530, type: 3}
+  pickupKey: {fileID: 7150225803848763681, guid: 87a36b4c200be8b469c40c28a5dc39e1, type: 3}

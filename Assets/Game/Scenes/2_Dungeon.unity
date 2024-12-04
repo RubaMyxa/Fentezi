@@ -7659,6 +7659,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1092080400}
     m_Modifications:
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[1].loot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2119694828336377647, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
       propertyPath: m_Name
       value: Crate (2)
@@ -8069,6 +8077,14 @@ PrefabInstance:
     - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
       propertyPath: count
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[0].count
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2119694828336377647, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
       propertyPath: m_Name
@@ -20549,6 +20565,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1092080400}
     m_Modifications:
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[0].loot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[0].count
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2119694828336377647, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
       propertyPath: m_Name
       value: Crate (1)
@@ -20959,6 +20987,30 @@ PrefabInstance:
     - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
       propertyPath: count
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[1].loot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[2].loot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[0].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[1].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291586239753767834, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
+      propertyPath: lootData.Array.data[2].count
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2119694828336377647, guid: 9dacd9a31e26d2a42935c17256ec3714, type: 3}
       propertyPath: m_Name

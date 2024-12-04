@@ -10,18 +10,23 @@ namespace Assets.Game.Code.Props
         private PropsContainer propsContainer;
 
         [SerializeField]
-        private Loot loot;
-        [SerializeField]
-        [Range(1, 10)]
-        private int count;
+        private LootData[] lootData;
 
         private Animator animator;
-        private GameObject spawnPickup;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
-            spawnPickup = propsContainer.GetPickup(loot);
+
+            Init();
+        }
+
+        private void Init()
+        {
+            foreach (var loot in lootData)
+            {
+                loot.Init(propsContainer);
+            }
         }
 
         public void TakeDamage()
@@ -31,10 +36,13 @@ namespace Assets.Game.Code.Props
 
         public void Die()
         {
-            for (int i = 0; i < count; i++)
+            foreach (var loot in lootData)
             {
-                GameObject coin = Instantiate(spawnPickup);
-                coin.transform.position = transform.position;
+                for (var i = 0; i < loot.count; i++)
+                {
+                    GameObject coin = Instantiate(loot.SpawnPickup);
+                    coin.transform.position = transform.position;
+                }
             }
 
             animator.SetTrigger("TakeDamage");
