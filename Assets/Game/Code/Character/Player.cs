@@ -1,7 +1,6 @@
 using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.Props;
 using System.Collections;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +21,7 @@ namespace Assets.Game.Code.Character
         private int DieHash = Animator.StringToHash("Die");
 
         private bool isAlive = true;
+        private int keys = 0;
 
         private void Awake()
         {
@@ -45,6 +45,12 @@ namespace Assets.Game.Code.Character
             if (collision.CompareTag("Coin"))
             {
                 collision.GetComponent<Coin>().Collect();
+            }
+            else if (collision.CompareTag("Key"))
+            {
+                keys += 1;
+
+                collision.GetComponent<Key>().Collect();
             }
         }
 
@@ -101,6 +107,11 @@ namespace Assets.Game.Code.Character
             yield return new WaitForSeconds(3f);
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public int GetKeys()
+        {
+            return keys;
         }
     }
 }

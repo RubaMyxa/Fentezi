@@ -18,5 +18,10 @@ namespace Assets.Game.Code.Effects
             Vector3 targetPosition = target.position + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
+
+        public void SetTarget(Transform target)
+        {
+            this.target = target;
+        }
     }
 }

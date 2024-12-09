@@ -11,7 +11,6 @@ namespace Assets.Game.Code.Props
         {
             Instantiate(coinEffect, gameObject.transform.position, Quaternion.identity);
 
-            Debug.Log("+1 coin");
             Destroy(gameObject);
         }
     }

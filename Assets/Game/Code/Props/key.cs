@@ -7,15 +7,11 @@ namespace Assets.Game.Code.Props
         [SerializeField]
         private GameObject keyEffect;
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        public void Collect()
         {
-            if (collision.CompareTag("Player"))
-            {
-                Instantiate(keyEffect, gameObject.transform.position, Quaternion.identity);
+            Instantiate(keyEffect, gameObject.transform.position, Quaternion.identity);
 
-                Debug.Log("+1 key");
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }
