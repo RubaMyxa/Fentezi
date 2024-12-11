@@ -12,6 +12,8 @@ namespace Assets.Game.Code.Infrastacture
         private GameObject player;
         [SerializeField]
         private FollowCamera followCamera;
+        [SerializeField]
+        private FadeInOut fadeInOut;
 
         [Space]
         [SerializeField]
@@ -31,6 +33,7 @@ namespace Assets.Game.Code.Infrastacture
         {
             PlayerSpawn();
 
+            fadeInOut.FadeOut();
             mineEnd.Construct(this);
         }
 
@@ -46,7 +49,7 @@ namespace Assets.Game.Code.Infrastacture
         {
             if (activePlayer.GetKeys() == keysToNextLevel)
             {
-                SceneManager.LoadScene(nextLevel);
+                fadeInOut.FadeIn(() => SceneManager.LoadScene(nextLevel));
             }
         }
     }
