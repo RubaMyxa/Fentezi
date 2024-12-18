@@ -195,7 +195,7 @@ MonoBehaviour:
   groundPoint: {fileID: 1963429521128422042}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   airControl: 1
   movementSpeed: 5
   jumpForce: 370

@@ -20,6 +20,7 @@ namespace Assets.Game.Code.Character
         private int AttackHash = Animator.StringToHash("Attack");
         private int DieHash = Animator.StringToHash("Die");
 
+        private int hp = 5;
         private bool isAlive = true;
         private int keys = 0;
 
@@ -92,6 +93,18 @@ namespace Assets.Game.Code.Character
                     colliders[i].GetComponent<IDamageble>()?.TakeDamage();
                 }
             }
+        }
+
+        public void TakeDamage(int damage)
+        {
+            hp -= damage;
+
+            if (hp < 0)
+            {
+                Die();
+            }
+
+            print("HP: " + hp);
         }
 
         public void Die()
