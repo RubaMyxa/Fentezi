@@ -20,14 +20,20 @@ namespace Assets.Game.Code.Character
         private int AttackHash = Animator.StringToHash("Attack");
         private int DieHash = Animator.StringToHash("Die");
 
-        private int hp = 5;
+        private int hp = 100;
         private bool isAlive = true;
         private int keys = 0;
+
+        private LayerMask playerLayer;
+        private LayerMask playerImmortalLayer;
 
         private void Awake()
         {
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
+
+            playerLayer = LayerMask.NameToLayer("Player");
+            playerImmortalLayer = LayerMask.NameToLayer("PlayerImmortal");
         }
 
         private void Update()
@@ -95,16 +101,22 @@ namespace Assets.Game.Code.Character
             }
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, Vector2 attackerPosition)
         {
+            Direction direction =
+                (attackerPosition.x - transform.position.x < 0)
+                ? Direction.Right
+                : Direction.Left;
+
             hp -= damage;
 
-            if (hp < 0)
+            if (hp <= 0)
             {
                 Die();
             }
 
-            print("HP: " + hp);
+            characterController.HitJump(direction);
+            StartCoroutine(StayImmortal());
         }
 
         public void Die()
@@ -120,6 +132,17 @@ namespace Assets.Game.Code.Character
             yield return new WaitForSeconds(3f);
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        private IEnumerator StayImmortal()
+        {
+            gameObject.layer = playerImmortalLayer;
+            GetComponent<SpriteRenderer>().color = new Color(1, 0.85f, 3, 1);
+
+            yield return new WaitForSeconds(1f);
+
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            gameObject.layer = playerLayer;
         }
 
         public int GetKeys()

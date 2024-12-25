@@ -5,4 +5,10 @@ namespace Assets.Game.Code
         Coin,
         Key
     }
+
+    public enum Direction
+    {
+        Left = -1,
+        Right = 1
+    }
 }

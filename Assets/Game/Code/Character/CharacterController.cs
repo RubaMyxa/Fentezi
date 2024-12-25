@@ -63,5 +63,10 @@ namespace Assets.Game.Code.Character
                 transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
             }
         }
+
+        public void HitJump(Direction direction)
+        {
+            rb.AddForce(new Vector2((int)direction * 15, 2), ForceMode2D.Impulse); // direction * jumpForce * 2, jumpForce / 4)
+        }
     }
 }

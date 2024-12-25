@@ -33,14 +33,6 @@ namespace Assets.Game.Code.AI.Enemys.Bat
             Movement();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.tag.Equals("Player"))
-            {
-                collision.GetComponent<Player>().TakeDamage(2);
-            }
-        }
-
         private void Movement()
         {
             Vector2 newPosition = Vector2.MoveTowards(rb.position, currentTarget.position, speed * Time.fixedDeltaTime);
