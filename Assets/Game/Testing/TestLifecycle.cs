@@ -82,6 +82,18 @@ public class TestLifecycle : MonoBehaviour
 
         GameObject g = gameObject; // GameObject к которому добавлен данный скрипт
         Transform t = transform; // Transform к которому добавлен данный скрипт
+
+        // -----------------------------------------
+
+        // Mathf                            | Математическая библиотека
+        // Time.deltaTime                   | Время, прошедшее между кадрами. Используется для плавного движения.
+        // Vector2/Vector3                  | Представляет вектор в 2D и 3D-пространстве (x, y, z).
+        // Quaternion                       | Представляет вращение в Unity.
+        // Raycast                          | Лучи, используемые для определения объектов на сцене.
+        // Input                            | Обработка ввода пользователя.
+        // Physics                          | Класс для работы с физикой.
+
+        // gameObject.CompareTag("Player")  | Более эффективная альтернатива сравнению тегов.
     }
 
     private void TestMethod()
