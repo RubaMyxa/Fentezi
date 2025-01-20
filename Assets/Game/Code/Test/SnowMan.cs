@@ -10,6 +10,7 @@ namespace Assets.Game.Code.Test
         [SerializeField]
         private GameObject snowmanPrefab;
 
+        
         public void Print()
         {
             print(transform.position);
@@ -39,5 +40,18 @@ namespace Assets.Game.Code.Test
         {
             Instantiate(snowmanPrefab, snowManSpawn.position, Quaternion.identity);
         }
-    }
-}
+
+        public void ChangeColor(Color newColor)
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = newColor;
+            }
+            else
+            {
+                Debug.LogWarning("SpriteRenderer не найден на этом объекте.");
+            }
+        }
+    }   }

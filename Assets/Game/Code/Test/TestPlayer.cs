@@ -20,6 +20,7 @@ namespace Assets.Game.Code.Test
                 collision.GetComponent<SnowMan>().Scale(new Vector2(1.5f, 1.5f));
                 collision.GetComponent<SnowMan>().SnowManDestroyTrigger();
                 collision.GetComponent<SnowMan>().Spawn();
+                collision.GetComponent<SnowMan>().ChangeColor(Color.red);
                 //collision.GetComponent<SnowMan>().SnowManDestroy();
             }
 
