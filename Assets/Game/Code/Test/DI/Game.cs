@@ -1,3 +1,4 @@
+﻿using Assets.Game.Code.Test.Initialize;
 using UnityEngine;
 
 namespace Assets.Game.Code.Test.DI
@@ -8,25 +9,41 @@ namespace Assets.Game.Code.Test.DI
         private GameObject enemySpawnerPrefab;
         [SerializeField]
         private Transform enemySpawnerPoint;
+        [Space]
+        [SerializeField]
+        private Crystal crystal;
 
         public GameObject EnemySpawner { get; private set; }
 
         private void Awake()
         {
             EnemySpawner = Instantiate(enemySpawnerPrefab, enemySpawnerPoint.position, Quaternion.identity);
+
+            // Инициализация
+            crystal.Construct(this);
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                EnemySpawner.GetComponent<EnemySpawner>().SpawnEnemys();
+                SpawnEnemys();
             }
 
             if (Input.GetKeyDown(KeyCode.T))
             {
-                EnemySpawner.GetComponent<EnemySpawner>().RemoveEnemys();
+                RemoveEnemys();
             }
+        }
+
+        public void SpawnEnemys()
+        {
+            EnemySpawner.GetComponent<EnemySpawner>().SpawnEnemys();
+        }
+
+        public void RemoveEnemys()
+        {
+            EnemySpawner.GetComponent<EnemySpawner>().RemoveEnemys();
         }
     }
 }
