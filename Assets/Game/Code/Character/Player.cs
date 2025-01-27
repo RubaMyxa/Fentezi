@@ -116,7 +116,7 @@ namespace Assets.Game.Code.Character
             }
 
             characterController.HitJump(direction);
-            StartCoroutine(StayImmortal());
+            //StartCoroutine(StayImmortal());
         }
 
         public void Die()

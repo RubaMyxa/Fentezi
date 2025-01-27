@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7718710393356390577}
   - component: {fileID: 6047852574514456031}
   - component: {fileID: 4335744502835527051}
-  - component: {fileID: 8170450691489018163}
   m_Layer: 10
   m_Name: Skeleton
   m_TagString: Untagged
@@ -37,6 +36,7 @@ Transform:
   m_Children:
   - {fileID: 6406510435970887871}
   - {fileID: 8017084270998931380}
+  - {fileID: 5775836919107420690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7012208310412925390
@@ -192,23 +192,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52270fa7c4a90904fb60364c3e070311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPoint: {fileID: 5775836919107420690}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
   points:
   - {fileID: 8017084270998931380}
   - {fileID: 6406510435970887871}
   movementSpeed: 3
---- !u!114 &8170450691489018163
-MonoBehaviour:
+--- !u!1 &6105371531958985038
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657590300127772669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 672cb88876262604a8251e6e45de07e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 25
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5775836919107420690}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5775836919107420690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105371531958985038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 335964510757731537}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8186138104697680993
 GameObject:
   m_ObjectHideFlags: 0

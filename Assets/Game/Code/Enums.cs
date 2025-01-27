@@ -11,4 +11,10 @@ namespace Assets.Game.Code
         Left = -1,
         Right = 1
     }
+
+    public enum BehaviourAI
+    {
+        Patrolling,
+        Attack
+    }
 }

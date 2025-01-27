@@ -1,9 +1,15 @@
+using Assets.Game.Code.Character;
 using UnityEngine;
 
 namespace Assets.Game.Code.AI.Enemys.Skeleton
 {
     public class Skeleton : MonoBehaviour
     {
+        [SerializeField]
+        private Transform attackPoint;
+        [SerializeField]
+        private LayerMask playerLayer;
+        [Space]
         [SerializeField]
         private Transform[] points;
         [Space]
@@ -13,6 +19,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         private Rigidbody2D rb;
         private Animator animator;
 
+        private BehaviourAI behaviourAI = BehaviourAI.Patrolling;
         private Vector3 currentVelocity = Vector3.zero;
         private Transform currentTarget;
         private int currentTargetIndex = 0;
@@ -44,6 +51,35 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         private void Update()
         {
+            AttackZoneDetector();
+            Patrolling(direction, behaviourAI);
+        }
+
+        private void AttackZoneDetector()
+        {
+            if (behaviourAI == BehaviourAI.Patrolling)
+            {
+                Collider2D playerCollider = Physics2D.OverlapBox(attackPoint.position, new Vector2(1.5f, 1.5f), 0f, playerLayer);
+
+                if (playerCollider)
+                {
+                    animator.SetTrigger("Attack");
+                    behaviourAI = BehaviourAI.Attack;
+                }
+                else
+                {
+                    behaviourAI = BehaviourAI.Patrolling;
+                }
+            }
+        }
+
+        private void Patrolling(int direction, BehaviourAI behaviourAI)
+        {
+            if (behaviourAI != BehaviourAI.Patrolling)
+            {
+                return;
+            }
+
             Move(direction);
             TargetDetector();
         }
@@ -89,6 +125,34 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
                     direction = 1;
                 }
             }
+        }
+
+        private void Attack()
+        {
+            Collider2D playerCollider = Physics2D.OverlapBox(attackPoint.position, new Vector2(1.5f, 1.5f), 0f, playerLayer);
+
+            if (playerCollider)
+            {
+                playerCollider.GetComponent<Player>().TakeDamage(20, transform.position);
+            }
+
+            print("Attack");
+        }
+
+        private void AttackEnd()
+        {
+            Collider2D playerCollider = Physics2D.OverlapBox(attackPoint.position, new Vector2(1.5f, 1.5f), 0f, playerLayer);
+
+            if (playerCollider)
+            {
+                animator.SetTrigger("Attack");
+            }
+            else
+            {
+                behaviourAI = BehaviourAI.Patrolling;
+            }
+
+            print("AttackEnd");
         }
     }
 }
