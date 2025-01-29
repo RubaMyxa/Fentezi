@@ -199,6 +199,8 @@ MonoBehaviour:
   points:
   - {fileID: 8017084270998931380}
   - {fileID: 6406510435970887871}
+  hp: 100
+  attackCooldown: 1
   movementSpeed: 3
 --- !u!1 &6105371531958985038
 GameObject:

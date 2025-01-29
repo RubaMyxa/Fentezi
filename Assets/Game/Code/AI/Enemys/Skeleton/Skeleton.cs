@@ -12,7 +12,11 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         [Space]
         [SerializeField]
         private Transform[] points;
-        [Space]
+        [Header("Parameters")]
+        [SerializeField]
+        private int hp;
+        [SerializeField]
+        private float attackCooldown;
         [SerializeField]
         private float movementSpeed;
 
@@ -137,7 +141,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             }
 
             print("Attack");
-            Invoke("AttackEnd", 1f);
+            Invoke("AttackEnd", attackCooldown);
         }
 
         private void StopMovement()
