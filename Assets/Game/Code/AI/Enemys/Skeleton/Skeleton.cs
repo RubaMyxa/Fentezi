@@ -137,6 +137,12 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             }
 
             print("Attack");
+            Invoke("AttackEnd", 1f);
+        }
+
+        private void StopMovement()
+        {
+            Move(0);
         }
 
         private void AttackEnd()
