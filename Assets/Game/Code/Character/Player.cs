@@ -22,18 +22,13 @@ namespace Assets.Game.Code.Character
 
         private int hp = 100;
         private bool isAlive = true;
+        private bool isImmortal = false;
         private int keys = 0;
-
-        private LayerMask playerLayer;
-        private LayerMask playerImmortalLayer;
 
         private void Awake()
         {
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
-
-            playerLayer = LayerMask.NameToLayer("Player");
-            playerImmortalLayer = LayerMask.NameToLayer("PlayerImmortal");
         }
 
         private void Update()
@@ -103,6 +98,11 @@ namespace Assets.Game.Code.Character
 
         public void TakeDamage(int damage, Vector2 attackerPosition)
         {
+            if (isImmortal)
+            {
+                return;
+            }
+
             Direction direction =
                 (attackerPosition.x - transform.position.x < 0)
                 ? Direction.Right
@@ -115,14 +115,15 @@ namespace Assets.Game.Code.Character
                 Die();
             }
 
-            characterController.HitJump(direction);
-            //StartCoroutine(StayImmortal());
+            //characterController.HitJump(direction);
+            StartCoroutine(StayImmortal());
         }
 
         public void Die()
         {
             isAlive = false;
 
+            characterController.ResetVelocity();
             animator.SetTrigger(DieHash);
             StartCoroutine(Respawn());
         }
@@ -136,13 +137,33 @@ namespace Assets.Game.Code.Character
 
         private IEnumerator StayImmortal()
         {
-            gameObject.layer = playerImmortalLayer;
-            GetComponent<SpriteRenderer>().color = new Color(1, 0.85f, 3, 1);
+            isImmortal = true;
 
-            yield return new WaitForSeconds(1f);
+            float wtrTime = 0;
+            float rtwTime = 0;
 
-            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            gameObject.layer = playerLayer;
+            // 0.25s
+            while (wtrTime < 1)
+            {
+                wtrTime = Mathf.Clamp01(wtrTime + 0.04f);
+                Color whiteToRed = Color.Lerp(Color.white, Color.red, wtrTime);
+                GetComponent<SpriteRenderer>().color = whiteToRed; // Red
+                yield return new WaitForSeconds(0.01f);
+            }
+
+            // 0.5
+            yield return new WaitForSeconds(0.5f);
+
+            // 0.25s
+            while (rtwTime < 1)
+            {
+                rtwTime = Mathf.Clamp01(rtwTime + 0.04f);
+                Color redToWhite = Color.Lerp(Color.red, Color.white, rtwTime);
+                GetComponent<SpriteRenderer>().color = redToWhite; // White
+                yield return new WaitForSeconds(0.01f);
+            }
+
+            isImmortal = false;
         }
 
         public int GetKeys()

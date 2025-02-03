@@ -19,8 +19,8 @@ TagManager:
   - PickupLock
   - PickupUnlock
   - Enemy
-  - PlayerImmortal
   - 
+  - DangerousZone
   - 
   - 
   - 

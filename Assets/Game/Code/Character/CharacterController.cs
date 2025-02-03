@@ -68,5 +68,10 @@ namespace Assets.Game.Code.Character
         {
             rb.AddForce(new Vector2((int)direction * 15, 2), ForceMode2D.Impulse); // direction * jumpForce * 2, jumpForce / 4)
         }
+
+        public void ResetVelocity()
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 }

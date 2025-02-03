@@ -13,12 +13,4 @@ public class DangerousZone : MonoBehaviour
             collision.GetComponent<Player>().TakeDamage(damage, transform.position);
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            collision.gameObject.GetComponent<Player>().TakeDamage(damage, transform.position);
-        }
-    }
 }
