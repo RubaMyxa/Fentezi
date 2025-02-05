@@ -94,6 +94,7 @@ public class TestLifecycle : MonoBehaviour
         // Physics                          | Класс для работы с физикой.
 
         // gameObject.CompareTag("Player")  | Более эффективная альтернатива сравнению тегов.
+        // gameObject.layer == LayerMask.NameToLayer("Player")  | Сравнение слоев.
     }
 
     private void TestMethod()

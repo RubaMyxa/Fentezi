@@ -6,6 +6,9 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
     public class Skeleton : MonoBehaviour
     {
         [SerializeField]
+        private GameObject arrow;
+        [Space]
+        [SerializeField]
         private Transform attackPoint;
         [SerializeField]
         private LayerMask playerLayer;
@@ -141,6 +144,14 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             }
 
             print("Attack");
+            Invoke("AttackEnd", attackCooldown);
+        }
+
+        private void AttackArrow()
+        {
+            GameObject a = Instantiate(arrow, attackPoint.position, Quaternion.identity);
+            a.transform.localScale = transform.localScale;
+
             Invoke("AttackEnd", attackCooldown);
         }
 
