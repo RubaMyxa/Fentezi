@@ -3,44 +3,21 @@ using UnityEngine;
 
 namespace Assets.Game.Code.AI.Enemys.Skeleton
 {
-    public class Skeleton : MonoBehaviour
+    public class SkeletonWorrior : SkeletonBase
     {
         [SerializeField]
-        private GameObject arrow;
-        [Space]
-        [SerializeField]
-        private Transform attackPoint;
-        [SerializeField]
-        private LayerMask playerLayer;
-        [Space]
-        [SerializeField]
         private Transform[] points;
-        [Header("Parameters")]
-        [SerializeField]
-        private int hp;
-        [SerializeField]
-        private float attackCooldown;
-        [SerializeField]
-        private float movementSpeed;
 
-        private Rigidbody2D rb;
-        private Animator animator;
-
-        private BehaviourAI behaviourAI = BehaviourAI.Patrolling;
-        private Vector3 currentVelocity = Vector3.zero;
         private Transform currentTarget;
         private int currentTargetIndex = 0;
-        private int direction = 0;
 
         private int HorizontalHash = Animator.StringToHash("horizontal");
 
-        private void Awake()
+        protected override void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
-            animator = GetComponent<Animator>();
+            base.Awake();
 
             currentTarget = points[currentTargetIndex];
-            //direction = (currentTarget.position.x - transform.position.x < 0) ? -1 : 1;
             if (currentTarget.position.x - transform.position.x < 0)
             {
                 direction = -1;
@@ -56,28 +33,11 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             }
         }
 
-        private void Update()
+        protected override void Update()
         {
-            AttackZoneDetector();
+            base.Update();
+
             Patrolling(direction, behaviourAI);
-        }
-
-        private void AttackZoneDetector()
-        {
-            if (behaviourAI == BehaviourAI.Patrolling)
-            {
-                Collider2D playerCollider = Physics2D.OverlapBox(attackPoint.position, new Vector2(1.5f, 1.5f), 0f, playerLayer);
-
-                if (playerCollider)
-                {
-                    animator.SetTrigger("Attack");
-                    behaviourAI = BehaviourAI.Attack;
-                }
-                else
-                {
-                    behaviourAI = BehaviourAI.Patrolling;
-                }
-            }
         }
 
         private void Patrolling(int direction, BehaviourAI behaviourAI)
@@ -123,14 +83,21 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
                 currentTarget = points[currentTargetIndex];
 
                 // Calculate direction
-                if (currentTarget.position.x - transform.position.x < 0)
-                {
-                    direction = -1;
-                }
-                else
-                {
-                    direction = 1;
-                }
+                CalculateDirection();
+            }
+        }
+
+        protected override void CalculateDirection()
+        {
+            base.CalculateDirection();
+
+            if (currentTarget.position.x - transform.position.x < 0)
+            {
+                direction = -1;
+            }
+            else
+            {
+                direction = 1;
             }
         }
 
@@ -147,33 +114,9 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             Invoke("AttackEnd", attackCooldown);
         }
 
-        private void AttackArrow()
-        {
-            GameObject a = Instantiate(arrow, attackPoint.position, Quaternion.identity);
-            a.transform.localScale = transform.localScale;
-
-            Invoke("AttackEnd", attackCooldown);
-        }
-
         private void StopMovement()
         {
             Move(0);
-        }
-
-        private void AttackEnd()
-        {
-            Collider2D playerCollider = Physics2D.OverlapBox(attackPoint.position, new Vector2(1.5f, 1.5f), 0f, playerLayer);
-
-            if (playerCollider)
-            {
-                animator.SetTrigger("Attack");
-            }
-            else
-            {
-                behaviourAI = BehaviourAI.Patrolling;
-            }
-
-            print("AttackEnd");
         }
     }
 }

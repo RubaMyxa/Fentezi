@@ -192,16 +192,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52270fa7c4a90904fb60364c3e070311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 150
+  attackCooldown: 2
+  movementSpeed: 2
   attackPoint: {fileID: 8511734641109980190}
+  attackZone: {x: 1.5, y: 1.5}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   points:
   - {fileID: 5654250035226829830}
   - {fileID: 7082668974895108602}
-  hp: 150
-  attackCooldown: 2
-  movementSpeed: 2
 --- !u!1 &3863566203553695050
 GameObject:
   m_ObjectHideFlags: 0

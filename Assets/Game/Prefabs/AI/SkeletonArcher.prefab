@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1584232020657507797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 151856165656261828}
   - component: {fileID: 6351575972480794192}
   - component: {fileID: 4420629121939712888}
-  - component: {fileID: 2451344731858774565}
+  - component: {fileID: 2327316346607542733}
   m_Layer: 10
   m_Name: SkeletonArcher
   m_TagString: Untagged
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2451344731858774565
+--- !u!114 &2327316346607542733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,20 +221,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4526965662945532383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52270fa7c4a90904fb60364c3e070311, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a20986f4ff36241b0fb8e0a718f589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 7428208868626211435, guid: a813e12a91b422244a28d78f7ea025ad, type: 3}
+  hp: 100
+  attackCooldown: 1.5
+  movementSpeed: 0
   attackPoint: {fileID: 4703421128729779566}
+  attackZone: {x: 13, y: 2}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  points:
-  - {fileID: 2715307231766607777}
-  - {fileID: 3037989831582402513}
-  hp: 100
-  attackCooldown: 1
-  movementSpeed: 3
+  arrow: {fileID: 7428208868626211435, guid: a813e12a91b422244a28d78f7ea025ad, type: 3}
 --- !u!1 &5191542381232840536
 GameObject:
   m_ObjectHideFlags: 0
