@@ -1,4 +1,5 @@
 using Assets.Game.Code.Character;
+using Assets.Game.Code.UI;
 using UnityEngine;
 
 namespace Assets.Game.Code.AI.Enemys.Skeleton
@@ -14,6 +15,8 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         protected float movementSpeed;
         [Space]
         [SerializeField]
+        private HpBar hpBar;
+        [SerializeField]
         protected Transform attackPoint;
         [SerializeField]
         private Vector2 attackZone;
@@ -28,15 +31,26 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         protected Vector3 currentVelocity = Vector3.zero;
         protected int direction = 0;
 
+        private int currentHp;
+        private int maxHp;
+
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+
+            currentHp = hp;
+            maxHp = hp;
         }
 
         protected virtual void Update()
         {
             AttackZoneDetector();
+
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                TakeDamage(20);
+            }
         }
 
         private void AttackZoneDetector()
@@ -75,6 +89,23 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             }
 
             print("AttackEnd");
+        }
+
+        public void TakeDamage(int damage)
+        {
+            currentHp -= damage;
+            if(currentHp < 0)
+            {
+                currentHp = 0;
+                Die();
+            }
+
+            hpBar.HpBarUpdate(currentHp, maxHp);
+        }
+
+        private void Die()
+        {
+
         }
     }
 }
