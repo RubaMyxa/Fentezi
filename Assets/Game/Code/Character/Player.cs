@@ -84,15 +84,12 @@ namespace Assets.Game.Code.Character
             }
         }
 
-        private void Hit()
+        private void SwordHit()
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(hitPoint.position, 0.5f, hittableLayer);
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject)
-                {
-                    colliders[i].GetComponent<IDamageble>()?.TakeDamage();
-                }
+                colliders[i].GetComponent<IDamageble>()?.TakeDamage(30);
             }
         }
 

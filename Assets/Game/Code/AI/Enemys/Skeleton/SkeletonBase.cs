@@ -1,10 +1,11 @@
 using Assets.Game.Code.Character;
+using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.UI;
 using UnityEngine;
 
 namespace Assets.Game.Code.AI.Enemys.Skeleton
 {
-    public class SkeletonBase : MonoBehaviour
+    public class SkeletonBase : MonoBehaviour, IDamageble
     {
         [Header("Parameters")]
         [SerializeField]
@@ -14,6 +15,8 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         [SerializeField]
         protected float movementSpeed;
         [Space]
+        [SerializeField]
+        private GameObject dangerousZone;
         [SerializeField]
         private HpBar hpBar;
         [SerializeField]
@@ -27,12 +30,24 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         protected Animator animator;
 
         protected Player player;
-        protected BehaviourAI behaviourAI = BehaviourAI.Patrolling;
+        private BehaviourAI behaviourAI = BehaviourAI.Patrolling;
         protected Vector3 currentVelocity = Vector3.zero;
         protected int direction = 0;
 
         private int currentHp;
         private int maxHp;
+
+        protected BehaviourAI GetSetBehaviourAI
+        {
+            get => behaviourAI;
+            set
+            {
+                if (behaviourAI != BehaviourAI.Die)
+                    behaviourAI = value;
+
+                print(GetSetBehaviourAI);
+            }
+        }
 
         protected virtual void Awake()
         {
@@ -46,11 +61,6 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         protected virtual void Update()
         {
             AttackZoneDetector();
-
-            if(Input.GetKeyDown(KeyCode.R))
-            {
-                TakeDamage(20);
-            }
         }
 
         private void AttackZoneDetector()
@@ -63,12 +73,12 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
                 {
                     player = playerCollider.GetComponent<Player>();
                     animator.SetTrigger("Attack");
-                    behaviourAI = BehaviourAI.Attack;
+                    GetSetBehaviourAI = BehaviourAI.Attack;
                 }
                 else
                 {
                     player = null;
-                    behaviourAI = BehaviourAI.Patrolling;
+                    GetSetBehaviourAI = BehaviourAI.Patrolling;
                 }
             }
         }
@@ -85,7 +95,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             }
             else
             {
-                behaviourAI = BehaviourAI.Patrolling;
+                GetSetBehaviourAI = BehaviourAI.Patrolling;
             }
 
             print("AttackEnd");
@@ -103,9 +113,11 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             hpBar.HpBarUpdate(currentHp, maxHp);
         }
 
-        private void Die()
+        public void Die()
         {
-
+            GetSetBehaviourAI = BehaviourAI.Die;
+            animator.SetTrigger("Die");
+            Destroy(dangerousZone);
         }
     }
 }

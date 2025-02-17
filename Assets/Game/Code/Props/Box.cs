@@ -29,7 +29,7 @@ namespace Assets.Game.Code.Props
             }
         }
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
             Die();
         }

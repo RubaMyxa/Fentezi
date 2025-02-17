@@ -228,6 +228,7 @@ MonoBehaviour:
   hp: 100
   attackCooldown: 1.5
   movementSpeed: 0
+  dangerousZone: {fileID: 5191542381232840536}
   hpBar: {fileID: 5070216425494955611}
   attackPoint: {fileID: 4703421128729779566}
   attackZone: {x: 13, y: 2}

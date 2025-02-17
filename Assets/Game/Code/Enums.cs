@@ -15,6 +15,7 @@ namespace Assets.Game.Code
     public enum BehaviourAI
     {
         Patrolling,
-        Attack
+        Attack,
+        Die
     }
 }

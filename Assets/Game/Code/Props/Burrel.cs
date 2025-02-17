@@ -20,9 +20,9 @@ namespace Assets.Game.Code.Props
             animator = GetComponent<Animator>();
         }
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
-            hp -= 30;
+            hp -= damage;
 
             if (hp <= 0)
             {

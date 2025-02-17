@@ -37,7 +37,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         {
             base.Update();
 
-            Patrolling(direction, behaviourAI);
+            Patrolling(direction, GetSetBehaviourAI);
         }
 
         private void Patrolling(int direction, BehaviourAI behaviourAI)

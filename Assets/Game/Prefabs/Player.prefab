@@ -215,7 +215,7 @@ MonoBehaviour:
   hitPoint: {fileID: 7301700049150174360}
   hittableLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1152
 --- !u!114 &8625091419165553538
 MonoBehaviour:
   m_ObjectHideFlags: 0
