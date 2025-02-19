@@ -1,4 +1,4 @@
-using Assets.Game.Code.Character;
+using Assets.Game.Code.Interfaces;
 using UnityEngine;
 
 namespace Assets.Game.Code.Mechanics
@@ -7,10 +7,20 @@ namespace Assets.Game.Code.Mechanics
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player"))
+            //if (collision.CompareTag("Player"))
+            //{
+            //    collision.GetComponent<Player>().Die();
+            //}
+
+            IDieble handler;
+
+            collision.TryGetComponent(out handler);
+
+            if (handler != null)
             {
-                collision.GetComponent<Player>().Die();
+                handler.Die();
             }
+            //handler?.Die();
         }
     }
 }

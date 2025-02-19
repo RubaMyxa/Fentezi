@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Game.Code.AI.Enemys.Skeleton
 {
-    public class SkeletonBase : MonoBehaviour, IDamageble
+    public class SkeletonBase : MonoBehaviour, IDamageble, IDieble
     {
         [Header("Parameters")]
         [SerializeField]
@@ -42,9 +42,10 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             get => behaviourAI;
             set
             {
-                if (behaviourAI != BehaviourAI.Die)
-                    behaviourAI = value;
+                if (behaviourAI == BehaviourAI.Die)
+                    return;
 
+                behaviourAI = value;
                 print(GetSetBehaviourAI);
             }
         }
@@ -87,6 +88,8 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         protected void AttackEnd()
         {
+            if (GetSetBehaviourAI == BehaviourAI.Die) return;
+
             Collider2D playerCollider = Physics2D.OverlapBox(attackPoint.position, new Vector2(1.5f, 1.5f), 0f, playerLayer);
 
             if (playerCollider)
@@ -103,6 +106,8 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         public void TakeDamage(int damage)
         {
+            if (GetSetBehaviourAI == BehaviourAI.Die) return;
+
             currentHp -= damage;
             if(currentHp < 0)
             {
@@ -115,8 +120,14 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         public void Die()
         {
+            if (GetSetBehaviourAI == BehaviourAI.Die) return;
+
             GetSetBehaviourAI = BehaviourAI.Die;
             animator.SetTrigger("Die");
+
+            currentHp = 0;
+            hpBar.HpBarUpdate(currentHp, maxHp);
+
             Destroy(dangerousZone);
         }
     }

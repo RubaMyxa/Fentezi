@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace Assets.Game.Code.Character
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IDieble
     {
         [SerializeField]
         private Transform hitPoint;

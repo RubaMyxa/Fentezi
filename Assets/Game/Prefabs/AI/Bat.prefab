@@ -201,9 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0150f18050516c47a61bb6c3bdcc030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 25
   points:
   - {fileID: 4768648341841553247}
   - {fileID: 6796389411997939427}
+  dangerousZone: {fileID: 7279166443291185225}
 --- !u!1 &4415537440902624501
 GameObject:
   m_ObjectHideFlags: 0

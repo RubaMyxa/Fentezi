@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Game.Code.Props
 {
-    public class Burrel : MonoBehaviour, IDamageble
+    public class Burrel : MonoBehaviour, IDamageble, IDieble
     {
         [SerializeField]
         private GameObject coinPickup;

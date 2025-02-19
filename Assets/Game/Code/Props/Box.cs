@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Game.Code.Props
 {
-    public class Box : MonoBehaviour, IDamageble
+    public class Box : MonoBehaviour, IDamageble, IDieble
     {
         [SerializeField]
         private PropsContainer propsContainer;
