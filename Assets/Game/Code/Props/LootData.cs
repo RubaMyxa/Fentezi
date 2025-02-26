@@ -9,7 +9,7 @@ namespace Assets.Game.Code.Props
     {
         public Loot loot;
         [Range(1, 10)]
-        public int count;
+        public int count = 1;
 
         public GameObject SpawnPickup { get; private set; }
 
