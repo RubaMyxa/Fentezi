@@ -207,6 +207,8 @@ MonoBehaviour:
   - {fileID: 4768648341841553247}
   - {fileID: 6796389411997939427}
   dangerousZone: {fileID: 7279166443291185225}
+  spline: {fileID: 2194483741642159509}
+  speed: 2
 --- !u!1 &4415537440902624501
 GameObject:
   m_ObjectHideFlags: 0

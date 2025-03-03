@@ -1,6 +1,6 @@
-using Assets.Game.Code.Character;
 using Assets.Game.Code.Interfaces;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Assets.Game.Code.AI.Enemys.Bat
 {
@@ -12,6 +12,10 @@ namespace Assets.Game.Code.AI.Enemys.Bat
         private Transform[] points;
         [SerializeField]
         private GameObject dangerousZone;
+        [SerializeField]
+        private SplineContainer spline;
+        [SerializeField]
+        private float speed;
 
         private Rigidbody2D rb;
         private Animator animator;
@@ -19,8 +23,9 @@ namespace Assets.Game.Code.AI.Enemys.Bat
         private Transform currentTarget;
         private int currentTargetIndex = 0;
 
-        private float speed = 2;
+        private float alpha = 0;
         private Vector2 direction;
+        private Vector2 startPos;
 
         private bool isAlive => hp > 0;
 
@@ -28,6 +33,7 @@ namespace Assets.Game.Code.AI.Enemys.Bat
         {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            startPos = transform.position;
 
             currentTarget = points[currentTargetIndex];
 
@@ -35,11 +41,31 @@ namespace Assets.Game.Code.AI.Enemys.Bat
             {
                 point.parent = null;
             }
+
+            spline.transform.parent = null;
+        }
+
+        private void Update()
+        {
+            //SplineMovement();
         }
 
         private void FixedUpdate()
         {
             Movement();
+        }
+
+        private void SplineMovement()
+        {
+            alpha += Time.deltaTime / 10 * speed;
+            if (alpha >= 1)
+            {
+                alpha = 0;
+            }
+
+            Vector3 pos = spline.EvaluatePosition(alpha);
+
+            transform.position = pos;
         }
 
         private void Movement()
