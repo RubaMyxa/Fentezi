@@ -15,6 +15,7 @@ namespace Assets.Game.Code.Character
 
         private CharacterController characterController;
         private Animator animator;
+        private static Rigidbody2D rigidbody;
 
         private int HorizontalHash = Animator.StringToHash("horizontal");
         private int AttackHash = Animator.StringToHash("Attack");
@@ -22,6 +23,7 @@ namespace Assets.Game.Code.Character
 
         private int hp = 100;
         private bool isAlive = true;
+        private static bool tutorialOn = false;
         private bool isImmortal = false;
         private int keys = 0;
 
@@ -29,6 +31,7 @@ namespace Assets.Game.Code.Character
         {
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
+            rigidbody = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -58,7 +61,7 @@ namespace Assets.Game.Code.Character
 
         private void Movement()
         {
-            if (!isAlive)
+            if (!isAlive || tutorialOn)
             {
                 return;
             }
@@ -73,7 +76,7 @@ namespace Assets.Game.Code.Character
 
         private void Attack()
         {
-            if (!isAlive)
+            if (!isAlive || tutorialOn)
             {
                 return;
             }
@@ -166,6 +169,13 @@ namespace Assets.Game.Code.Character
         public int GetKeys()
         {
             return keys;
+        }
+
+        public static void TutorialOnOff(bool isOn)
+        {
+            tutorialOn = isOn;
+
+            rigidbody.linearVelocity = Vector3.zero;
         }
     }
 }
