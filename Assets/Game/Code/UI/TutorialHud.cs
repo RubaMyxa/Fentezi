@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Assets.Game.Code.Character;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 namespace Assets.Game.Code.UI
 {
@@ -32,6 +33,7 @@ namespace Assets.Game.Code.UI
                 StopCoroutine(coroutine);
             }
 
+            GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(null);
             coroutine = StartCoroutine(HideCoroutine());
         }
 
@@ -53,6 +55,7 @@ namespace Assets.Game.Code.UI
         private IEnumerator HideCoroutine()
         {
             Player.TutorialOnOff(false);
+            curtain.blocksRaycasts = false;
             curtain.alpha = 1.0f;
 
             while (curtain.alpha > 0)
@@ -60,8 +63,6 @@ namespace Assets.Game.Code.UI
                 yield return new WaitForSeconds(0.01f);
                 curtain.alpha -= 0.02f;
             }
-
-            curtain.blocksRaycasts = false;
         }
     }
 }
