@@ -584,6 +584,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4768648341841553247, guid: b532e652d671b0f46aa4c4c75cae2b45, type: 3}
   m_PrefabInstance: {fileID: 195069011}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &250005945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+  m_PrefabInstance: {fileID: 1119122129}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &253782421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4305,6 +4310,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 774943044}
   m_LocalEulerAnglesHint: {x: 0, y: 181.995, z: 0}
+--- !u!1001 &1119122129
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1556307079}
+    m_Modifications:
+    - target: {fileID: 2023967028762257786, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: tutorialHud
+      value: 
+      objectReference: {fileID: 1124289351}
+    - target: {fileID: 2023967028762257786, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: tutorialText
+      value: Dangerous areas are marked in red! Do not enter them - it could be a
+        trap or instant death.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107856625491183446, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107856625491183446, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_Size.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283418823212968609, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_Name
+      value: KillZoneTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83430f065067cc64ea258ee831af7977, type: 3}
 --- !u!1 &1124289346
 GameObject:
   m_ObjectHideFlags: 0
@@ -4626,6 +4705,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216575793}
   m_CullTransparentMesh: 1
+--- !u!1001 &1218478610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1556307079}
+    m_Modifications:
+    - target: {fileID: 2023967028762257786, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: tutorialHud
+      value: 
+      objectReference: {fileID: 1124289351}
+    - target: {fileID: 2023967028762257786, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: tutorialText
+      value: Left click to hit.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107856625491183446, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107856625491183446, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_Size.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283418823212968609, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_Name
+      value: AttackTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83430f065067cc64ea258ee831af7977, type: 3}
 --- !u!1001 &1226440983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6151,6 +6303,8 @@ Transform:
   m_Children:
   - {fileID: 1918392448}
   - {fileID: 1592107607}
+  - {fileID: 250005945}
+  - {fileID: 1866747194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1592107606
@@ -6167,7 +6321,7 @@ PrefabInstance:
       objectReference: {fileID: 1124289351}
     - target: {fileID: 2023967028762257786, guid: 83430f065067cc64ea258ee831af7977, type: 3}
       propertyPath: tutorialText
-      value: Jump
+      value: To jump over an obstacle, press Space.
       objectReference: {fileID: 0}
     - target: {fileID: 5107856625491183446, guid: 83430f065067cc64ea258ee831af7977, type: 3}
       propertyPath: m_Size.x
@@ -6620,6 +6774,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1063966707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1866747194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
+  m_PrefabInstance: {fileID: 1218478610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1918392448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7797945998933838705, guid: 83430f065067cc64ea258ee831af7977, type: 3}
@@ -14761,7 +14920,7 @@ PrefabInstance:
       objectReference: {fileID: 1124289351}
     - target: {fileID: 2023967028762257786, guid: 83430f065067cc64ea258ee831af7977, type: 3}
       propertyPath: tutorialText
-      value: W A S D
+      value: To move, use the keys W, A, S, D.
       objectReference: {fileID: 0}
     - target: {fileID: 5107856625491183446, guid: 83430f065067cc64ea258ee831af7977, type: 3}
       propertyPath: m_Size.x
