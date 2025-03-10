@@ -29,9 +29,11 @@ namespace Assets.Game.Code.Props
             }
         }
 
-        public void TakeDamage(int damage)
+        public DefeatedObject TakeDamage(int damage)
         {
             Die();
+
+            return DefeatedObject.Prop;
         }
 
         public void Die()

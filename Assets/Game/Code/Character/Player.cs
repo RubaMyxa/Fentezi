@@ -26,6 +26,7 @@ namespace Assets.Game.Code.Character
         private static bool tutorialOn = false;
         private bool isImmortal = false;
         private int keys = 0;
+        private int defeatEnemies = 0;
 
         private void Awake()
         {
@@ -92,7 +93,12 @@ namespace Assets.Game.Code.Character
             Collider2D[] colliders = Physics2D.OverlapCircleAll(hitPoint.position, 0.5f, hittableLayer);
             for (int i = 0; i < colliders.Length; i++)
             {
-                colliders[i].GetComponent<IDamageble>()?.TakeDamage(30);
+                DefeatedObject? defeatedObject = colliders[i].GetComponent<IDamageble>()?.TakeDamage(30);
+
+                if (defeatedObject != null && defeatedObject == DefeatedObject.Enemy)
+                {
+                    defeatEnemies += 1;
+                }
             }
         }
 
@@ -169,6 +175,16 @@ namespace Assets.Game.Code.Character
         public int GetKeys()
         {
             return keys;
+        }
+
+        public int GetDefeatEnemies()
+        {
+            return defeatEnemies;
+        }
+
+        public void HealToMax()
+        {
+            hp = 100;
         }
 
         public static void TutorialOnOff(bool isOn)

@@ -20,16 +20,20 @@ namespace Assets.Game.Code.Props
             animator = GetComponent<Animator>();
         }
 
-        public void TakeDamage(int damage)
+        public DefeatedObject TakeDamage(int damage)
         {
             hp -= damage;
 
             if (hp <= 0)
             {
                 Die();
+
+                return DefeatedObject.Prop;
             }
 
             hpBar.SetProgressBarAmount(1f / 100f * hp);
+
+            return DefeatedObject.None;
         }
 
         public void Die()

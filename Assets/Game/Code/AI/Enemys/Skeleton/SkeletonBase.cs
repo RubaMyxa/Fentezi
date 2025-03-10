@@ -104,18 +104,22 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             print("AttackEnd");
         }
 
-        public void TakeDamage(int damage)
+        public DefeatedObject TakeDamage(int damage)
         {
-            if (GetSetBehaviourAI == BehaviourAI.Die) return;
+            if (GetSetBehaviourAI == BehaviourAI.Die) return DefeatedObject.None;
 
             currentHp -= damage;
             if(currentHp < 0)
             {
                 currentHp = 0;
                 Die();
+
+                return DefeatedObject.Enemy;
             }
 
             hpBar.HpBarUpdate(currentHp, maxHp);
+
+            return DefeatedObject.None;
         }
 
         public void Die()

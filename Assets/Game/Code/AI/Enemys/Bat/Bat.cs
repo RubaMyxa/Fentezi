@@ -103,16 +103,20 @@ namespace Assets.Game.Code.AI.Enemys.Bat
             }
         }
 
-        public void TakeDamage(int damage)
+        public DefeatedObject TakeDamage(int damage)
         {
-            if (!isAlive) return;
+            if (!isAlive) return DefeatedObject.None;
 
             hp -= damage;
             if (hp < 0)
             {
                 hp = 0;
                 Die();
+
+                return DefeatedObject.Enemy;
             }
+
+            return DefeatedObject.None;
         }
 
         public void Die()

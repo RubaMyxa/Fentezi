@@ -18,4 +18,11 @@ namespace Assets.Game.Code
         Attack,
         Die
     }
+
+    public enum DefeatedObject
+    {
+        None,
+        Enemy,
+        Prop
+    }
 }
