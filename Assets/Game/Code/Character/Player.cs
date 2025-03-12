@@ -1,5 +1,6 @@
 using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.Props;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,8 +26,15 @@ namespace Assets.Game.Code.Character
         private bool isAlive = true;
         private static bool tutorialOn = false;
         private bool isImmortal = false;
+        private int coin = 0;
         private int keys = 0;
         private int defeatEnemies = 0;
+
+        public int GetHp => hp;
+        public int GetCoin => coin;
+
+        public event Action OnHpUpdate;
+        public event Action OnCoinsUpdate;
 
         private void Awake()
         {
@@ -51,6 +59,9 @@ namespace Assets.Game.Code.Character
             if (collision.CompareTag("Coin"))
             {
                 collision.GetComponent<Coin>().Collect();
+                coin += 1;
+
+                OnCoinsUpdate?.Invoke();
             }
             else if (collision.CompareTag("Key"))
             {
@@ -115,6 +126,7 @@ namespace Assets.Game.Code.Character
                 : Direction.Left;
 
             hp -= damage;
+            OnHpUpdate?.Invoke();
 
             if (hp <= 0)
             {
@@ -127,6 +139,8 @@ namespace Assets.Game.Code.Character
 
         public void Die()
         {
+            hp = 0;
+            OnHpUpdate?.Invoke();
             isAlive = false;
 
             characterController.ResetVelocity();
@@ -185,6 +199,7 @@ namespace Assets.Game.Code.Character
         public void HealToMax()
         {
             hp = 100;
+            OnHpUpdate?.Invoke();
         }
 
         public static void TutorialOnOff(bool isOn)

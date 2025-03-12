@@ -31,7 +31,7 @@ namespace Assets.Game.Code.Infrastacture
         [SerializeField]
         private int enemys;
 
-        private Player activePlayer;
+        public Player ActivePlayer { get; private set; }
 
         private void Awake()
         {
@@ -46,12 +46,12 @@ namespace Assets.Game.Code.Infrastacture
             GameObject spawnedPlayer = Instantiate(player, mineStart.transform.position, Quaternion.identity);
             followCamera.SetTarget(spawnedPlayer.transform);
 
-            activePlayer = spawnedPlayer.GetComponent<Player>();
+            ActivePlayer = spawnedPlayer.GetComponent<Player>();
         }
 
         public void OpenNextLevel()
         {
-            if (activePlayer.GetKeys() == keys && activePlayer.GetDefeatEnemies() == enemys)
+            if (ActivePlayer.GetKeys() == keys && ActivePlayer.GetDefeatEnemies() == enemys)
             {
                 fadeInOut.FadeIn(() => SceneManager.LoadScene(nextLevel));
             }
