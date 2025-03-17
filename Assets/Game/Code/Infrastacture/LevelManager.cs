@@ -31,6 +31,9 @@ namespace Assets.Game.Code.Infrastacture
         [SerializeField]
         private int enemys;
 
+        public int GetKeys => keys;
+        public int GetEnemys => enemys;
+
         public Player ActivePlayer { get; private set; }
 
         private void Awake()
@@ -51,7 +54,7 @@ namespace Assets.Game.Code.Infrastacture
 
         public void OpenNextLevel()
         {
-            if (ActivePlayer.GetKeys() == keys && ActivePlayer.GetDefeatEnemies() == enemys)
+            if (ActivePlayer.GetKeys == keys && ActivePlayer.GetDefeatEnemies() == enemys)
             {
                 fadeInOut.FadeIn(() => SceneManager.LoadScene(nextLevel));
             }

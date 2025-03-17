@@ -27,14 +27,18 @@ namespace Assets.Game.Code.Character
         private static bool tutorialOn = false;
         private bool isImmortal = false;
         private int coin = 0;
-        private int keys = 0;
         private int defeatEnemies = 0;
+        private int keys = 0;
 
         public int GetHp => hp;
         public int GetCoin => coin;
+        public int GetDefeatEnemys => defeatEnemies;
+        public int GetKeys => keys;
 
         public event Action OnHpUpdate;
         public event Action OnCoinsUpdate;
+        public event Action OnEnemyDefeat;
+        public event Action OnKeyCollect;
 
         private void Awake()
         {
@@ -66,6 +70,7 @@ namespace Assets.Game.Code.Character
             else if (collision.CompareTag("Key"))
             {
                 keys += 1;
+                OnKeyCollect?.Invoke();
 
                 collision.GetComponent<Key>().Collect();
             }
@@ -109,6 +114,7 @@ namespace Assets.Game.Code.Character
                 if (defeatedObject != null && defeatedObject == DefeatedObject.Enemy)
                 {
                     defeatEnemies += 1;
+                    OnEnemyDefeat?.Invoke();
                 }
             }
         }
@@ -184,11 +190,6 @@ namespace Assets.Game.Code.Character
             }
 
             isImmortal = false;
-        }
-
-        public int GetKeys()
-        {
-            return keys;
         }
 
         public int GetDefeatEnemies()

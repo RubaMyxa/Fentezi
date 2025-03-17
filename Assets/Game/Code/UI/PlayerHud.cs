@@ -18,6 +18,12 @@ namespace Assets.Game.Code.UI
         [SerializeField]
         private TextMeshProUGUI coinsText;
 
+        [Header("PlayerGoals")]
+        [SerializeField]
+        private TextMeshProUGUI enemysText;
+        [SerializeField]
+        private TextMeshProUGUI keysText;
+
         private void Start()
         {
             Init();
@@ -27,9 +33,13 @@ namespace Assets.Game.Code.UI
         {
             UpdateHp();
             UpdateCoins();
+            UpdateEnemys();
+            UpdateKeys();
 
             levelManager.ActivePlayer.OnHpUpdate += UpdateHp;
             levelManager.ActivePlayer.OnCoinsUpdate += UpdateCoins;
+            levelManager.ActivePlayer.OnEnemyDefeat += UpdateEnemys;
+            levelManager.ActivePlayer.OnKeyCollect += UpdateKeys;
         }
 
         private void UpdateHp()
@@ -41,6 +51,16 @@ namespace Assets.Game.Code.UI
         private void UpdateCoins()
         {
             coinsText.text = $"{levelManager.ActivePlayer.GetCoin}";
+        }
+
+        private void UpdateEnemys()
+        {
+            enemysText.text = $"{levelManager.ActivePlayer.GetDefeatEnemys}/{levelManager.GetEnemys}";
+        }
+
+        private void UpdateKeys()
+        {
+            keysText.text = $"{levelManager.ActivePlayer.GetKeys}/{levelManager.GetKeys}";
         }
     }
 }
