@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 109
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: dcea27f8885acb849b21f15db6cecd9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -171,5 +171,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propsContainer: {fileID: 11400000, guid: 5679faf4bc2f2e64580946a23d6a4479, type: 2}
-  loot: 0
-  count: 1
+  lootData: []

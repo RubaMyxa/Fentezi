@@ -80,6 +80,8 @@ namespace Assets.Game.Code.Character
         {
             if (!isAlive || tutorialOn)
             {
+                animator.SetFloat(HorizontalHash, 0);
+
                 return;
             }
 

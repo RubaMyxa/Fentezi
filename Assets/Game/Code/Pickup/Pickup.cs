@@ -7,7 +7,7 @@ namespace Assets.Game.Code.Pickup
         [SerializeField]
         private GameObject realProp;
 
-        private float timer = 0.2f;
+        private float timer = 0.1f;
 
         private Rigidbody2D rb;
 

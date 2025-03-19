@@ -45,11 +45,6 @@ namespace Assets.Game.Code.AI.Enemys.Bat
             spline.transform.parent = null;
         }
 
-        private void Update()
-        {
-            //SplineMovement();
-        }
-
         private void FixedUpdate()
         {
             Movement();
@@ -91,15 +86,6 @@ namespace Assets.Game.Code.AI.Enemys.Bat
                 // Watch direction
                 direction = (Vector2)points[currentTargetIndex].position - rb.position;
                 transform.localScale = new Vector3((direction.x < 0) ? -1 : 1, 1, 1);
-
-                //if (direction.x < 0)
-                //{
-                //    transform.localScale = new Vector3(-1, 1, 1);
-                //}
-                //else
-                //{
-                //    transform.localScale = new Vector3(1, 1, 1);
-                //}
             }
         }
 
@@ -122,6 +108,7 @@ namespace Assets.Game.Code.AI.Enemys.Bat
         public void Die()
         {
             hp = 0;
+            rb.bodyType = RigidbodyType2D.Dynamic;
             animator.SetTrigger("Die");
             Destroy(dangerousZone);
         }
