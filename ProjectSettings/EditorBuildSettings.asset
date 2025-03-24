@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game/Scenes/1_Forest.unity
-    guid: 31fea3e13184feb48934d3de96d5f73e
+    path: Assets/Game/Scenes/Level1 (Dungeon).unity
+    guid: 2e494c3fb7b70aa4aa8f3c3c33f26276
   - enabled: 1
-    path: Assets/Game/Scenes/2_Dungeon.unity
-    guid: 7dd88888c9c5ff24d821b88eb862d1d7
+    path: Assets/Game/Scenes/Level2 (Forest).unity
+    guid: 31fea3e13184feb48934d3de96d5f73e
   - enabled: 1
     path: Assets/Game/Scenes/3_Snow.unity
     guid: 97009eaf7c276e441831618e213c8220
