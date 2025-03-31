@@ -70,7 +70,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         private void TargetDetector()
         {
-            if (Vector2.Distance(rb.position, currentTarget.position) < 0.1f)
+            if (Vector2.Distance(rb.position, currentTarget.position) < 0.25f)
             {
                 // Next target index
                 currentTargetIndex += 1;

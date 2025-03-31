@@ -37,6 +37,8 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         private int currentHp;
         private int maxHp;
 
+        protected bool IsAlive => currentHp > 0;
+
         protected BehaviourAI GetSetBehaviourAI
         {
             get => behaviourAI;

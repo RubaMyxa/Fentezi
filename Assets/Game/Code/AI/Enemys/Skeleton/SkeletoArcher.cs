@@ -23,7 +23,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         {
             base.CalculateDirection();
 
-            if (!player)
+            if (!player || !IsAlive)
             {
                 return;
             }
