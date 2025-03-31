@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Level3 (Snow).unity
     guid: 97009eaf7c276e441831618e213c8220
+  - enabled: 1
+    path: Assets/Game/Scenes/FinalBoss.unity
+    guid: 3b186c436a4c8dd43acf01b8834401c6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
