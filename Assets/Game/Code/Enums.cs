@@ -19,6 +19,14 @@ namespace Assets.Game.Code
         Die
     }
 
+    public enum BehaviourBossAI
+    {
+        Patrolling,
+        Waiting,
+        Attack,
+        Die
+    }
+
     public enum DefeatedObject
     {
         None,
