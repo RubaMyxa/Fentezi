@@ -13,6 +13,9 @@ namespace Assets.Game.Code.Character
         private Transform hitPoint;
         [SerializeField]
         private LayerMask hittableLayer;
+        [Space]
+        [SerializeField]
+        private GameObject impact1;
 
         private CharacterController characterController;
         private Animator animator;
@@ -111,6 +114,9 @@ namespace Assets.Game.Code.Character
             Collider2D[] colliders = Physics2D.OverlapCircleAll(hitPoint.position, 0.5f, hittableLayer);
             for (int i = 0; i < colliders.Length; i++)
             {
+                GameObject effect = Instantiate(impact1, hitPoint.position, Quaternion.identity);
+                effect.transform.localScale = Vector3.one * 0.5f;
+
                 DefeatedObject? defeatedObject = colliders[i].GetComponent<IDamageble>()?.TakeDamage(30);
 
                 if (defeatedObject != null && defeatedObject == DefeatedObject.Enemy)

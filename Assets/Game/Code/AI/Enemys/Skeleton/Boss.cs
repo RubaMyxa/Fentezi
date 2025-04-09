@@ -2,6 +2,7 @@ using UnityEngine;
 using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.UI;
 using System.Collections;
+using Assets.Game.Code.Character;
 
 namespace Assets.Game.Code.AI.Enemys.Skeleton
 {
@@ -20,6 +21,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         private Rigidbody2D rb;
         private Animator animator;
+        private Player player;
 
         private int currentHp;
         private int maxHp;
@@ -60,6 +62,11 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             }
         }
 
+        private void Start()
+        {
+            player = FindFirstObjectByType<Player>();
+        }
+
         private void Update()
         {
             Patrolling();
@@ -68,6 +75,8 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         private void Patrolling()
         {
+            hpBar.StaminaBarUpdate(attackTimer, 4f);
+
             if (behaviourBossAI != BehaviourBossAI.Patrolling)
             {
                 return;
@@ -97,11 +106,15 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
                 StopMovement();
                 behaviourBossAI = BehaviourBossAI.Attack;
                 animator.SetTrigger("Attack");
+
+                CalculateDirection(player.transform);
+                transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
             }
         }
 
         private void AttackEnd()
         {
+            CalculateDirection(currentTarget);
             behaviourBossAI = BehaviourBossAI.Patrolling;
             attackTimer = 4f;
         }
@@ -138,7 +151,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
                 currentTarget = points[currentTargetIndex];
 
                 // Calculate direction
-                CalculateDirection();
+                CalculateDirection(currentTarget);
 
                 // Waiting timer
                 waitingCoroutine = StartCoroutine(WaitingTimer());
@@ -155,9 +168,9 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             behaviourBossAI = BehaviourBossAI.Patrolling;
         }
 
-        private void CalculateDirection()
+        private void CalculateDirection(Transform target)
         {
-            if (currentTarget.position.x - transform.position.x < 0)
+            if (target.position.x - transform.position.x < 0)
             {
                 direction = -1;
             }
