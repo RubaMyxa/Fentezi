@@ -16,6 +16,8 @@ namespace Assets.Game.Code.Character
         [Space]
         [SerializeField]
         private GameObject impact1;
+        [SerializeField]
+        private GameObject impact2;
 
         private CharacterController characterController;
         private Animator animator;
@@ -114,7 +116,7 @@ namespace Assets.Game.Code.Character
             Collider2D[] colliders = Physics2D.OverlapCircleAll(hitPoint.position, 0.5f, hittableLayer);
             for (int i = 0; i < colliders.Length; i++)
             {
-                GameObject effect = Instantiate(impact1, hitPoint.position, Quaternion.identity);
+                GameObject effect = Instantiate(GetRandomImpact(), hitPoint.position, Quaternion.identity);
                 effect.transform.localScale = Vector3.one * 0.5f;
 
                 DefeatedObject? defeatedObject = colliders[i].GetComponent<IDamageble>()?.TakeDamage(30);
@@ -125,6 +127,16 @@ namespace Assets.Game.Code.Character
                     OnEnemyDefeat?.Invoke();
                 }
             }
+        }
+
+        private GameObject GetRandomImpact()
+        {
+            int rand = UnityEngine.Random.Range(0, 2); // 0 or 1
+
+            if (rand == 0)
+                return impact1;
+            else
+                return impact2;
         }
 
         public void TakeDamage(int damage, Vector2 attackerPosition)

@@ -217,6 +217,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1152
   impact1: {fileID: 1190669777424781672, guid: bc32e045d3d544d458cadd08166b0b16, type: 3}
+  impact2: {fileID: 2065736454967500682, guid: 413afc33da4c496488e73088ca5f506a, type: 3}
 --- !u!114 &8625091419165553538
 MonoBehaviour:
   m_ObjectHideFlags: 0
