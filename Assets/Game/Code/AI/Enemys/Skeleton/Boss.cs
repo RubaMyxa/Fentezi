@@ -220,7 +220,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             currentHp -= damage;
             hpBar.HpBarUpdate(currentHp, maxHp);
 
-            if (currentHp < 0)
+            if (currentHp <= 0)
             {
                 currentHp = 0;
                 Die();
