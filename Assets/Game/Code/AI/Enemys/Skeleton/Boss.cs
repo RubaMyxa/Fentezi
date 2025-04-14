@@ -8,13 +8,21 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 {
     public class Boss : MonoBehaviour, IDamageble, IDieble
     {
+        [SerializeField]
+        private Transform hitPoint1;
+        [SerializeField]
+        private Transform hitPoint2;
+        [SerializeField]
+        private LayerMask hittableLayer;
         [Header("Parameters")]
         [SerializeField]
         private Transform[] points;
         [SerializeField]
         private int hp;
         [SerializeField]
-        protected float movementSpeed;
+        private float movementSpeed;
+        [SerializeField]
+        private float attackCooldown;
         [Space]
         [SerializeField]
         private HpBar hpBar;
@@ -28,7 +36,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         private int direction = 0;
         private Transform currentTarget;
         private int currentTargetIndex = 0;
-        private float waitingTimer, attackTimer = 4f;
+        private float waitingTimer, attackTimer;
         private Coroutine waitingCoroutine;
 
         private Vector3 currentVelocity = Vector3.zero;
@@ -43,6 +51,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
             currentHp = hp;
             maxHp = currentHp;
+            attackTimer = attackCooldown;
 
             // Target init
             currentTarget = points[currentTargetIndex];
@@ -75,7 +84,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         private void Patrolling()
         {
-            hpBar.StaminaBarUpdate(attackTimer, 4f);
+            hpBar.StaminaBarUpdate(attackTimer, attackCooldown);
 
             if (behaviourBossAI != BehaviourBossAI.Patrolling)
             {
@@ -116,7 +125,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         {
             CalculateDirection(currentTarget);
             behaviourBossAI = BehaviourBossAI.Patrolling;
-            attackTimer = 4f;
+            attackTimer = attackCooldown;
         }
 
         private void Move(int direction)
@@ -184,6 +193,24 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         {
             Move(0);
             rb.linearVelocity = Vector2.zero;
+        }
+
+        private void SwordHit()
+        {
+            Collider2D[] colliders1 = Physics2D.OverlapCircleAll(hitPoint1.position, 1.5f, hittableLayer);
+            Collider2D[] colliders2 = Physics2D.OverlapCircleAll(hitPoint2.position, 1.5f, hittableLayer);
+
+            for (int i = 0; i < colliders1.Length; i++)
+            {
+                colliders1[i].GetComponent<Player>().TakeDamage(60, (Vector2)transform.position);
+
+                return;
+            }
+
+            for (int i = 0; i < colliders2.Length; i++)
+            {
+                colliders2[i].GetComponent<Player>().TakeDamage(60, (Vector2)transform.position);
+            }
         }
 
         public DefeatedObject TakeDamage(int damage)
