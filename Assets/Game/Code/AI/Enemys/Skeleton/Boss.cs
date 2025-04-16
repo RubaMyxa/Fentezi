@@ -3,6 +3,7 @@ using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.UI;
 using System.Collections;
 using Assets.Game.Code.Character;
+using System;
 
 namespace Assets.Game.Code.AI.Enemys.Skeleton
 {
@@ -38,6 +39,8 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
         private int currentTargetIndex = 0;
         private float waitingTimer, attackTimer;
         private Coroutine waitingCoroutine;
+
+        public event Action OnDie;
 
         private Vector3 currentVelocity = Vector3.zero;
         private BehaviourBossAI behaviourBossAI = BehaviourBossAI.Patrolling;
@@ -233,12 +236,14 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
 
         public void Die()
         {
+            StopCoroutine(waitingCoroutine);
             StopMovement();
             behaviourBossAI = BehaviourBossAI.Die;
             currentHp = 0;
             hpBar.HpBarUpdate(currentHp, maxHp);
 
             animator.SetTrigger("Die");
+            OnDie?.Invoke();
         }
     }
 }

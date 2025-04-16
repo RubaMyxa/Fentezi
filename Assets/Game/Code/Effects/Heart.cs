@@ -21,12 +21,10 @@ namespace Assets.Game.Code.Effects
 
                 if (heartType == HeartType.Single)
                 {
-                    print("Single heart taken");
                     Destroy(gameObject);
                 }
                 else // Multiple
                 {
-                    print("Multiple heart taken");
                     canBeTaken = false;
                     GetComponent<SpriteRenderer>().enabled = false;
 
