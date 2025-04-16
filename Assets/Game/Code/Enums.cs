@@ -33,4 +33,10 @@ namespace Assets.Game.Code
         Enemy,
         Prop
     }
+
+    public enum HeartType
+    {
+        Single,
+        Multiple
+    }
 }
