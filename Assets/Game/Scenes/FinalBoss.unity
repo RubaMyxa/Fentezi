@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 1264487560}
     - target: {fileID: 1880885260150475277, guid: 004ff9b4b49bf924780bc8dbeab55a69, type: 3}
       propertyPath: nextLevel
-      value: Level1 (Dungeon)
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1880885260150475277, guid: 004ff9b4b49bf924780bc8dbeab55a69, type: 3}
       propertyPath: followCamera

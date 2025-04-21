@@ -44,6 +44,17 @@ namespace Assets.Game.Code.Infrastacture
             mineEnd.Construct(this);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                fadeInOut.FadeIn(() =>
+                {
+                    SceneManager.LoadScene("MainMenu");
+                });
+            }
+        }
+
         private void PlayerSpawn()
         {
             GameObject spawnedPlayer = Instantiate(player, mineStart.transform.position, Quaternion.identity);
