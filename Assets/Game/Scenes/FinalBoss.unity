@@ -6399,7 +6399,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1375683087965737709, guid: 0dd95543b0053ff4cbcd55ad82ee501f, type: 3}
       propertyPath: hp
-      value: 100
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375683087965737709, guid: 0dd95543b0053ff4cbcd55ad82ee501f, type: 3}
+      propertyPath: attackCooldown
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6284448622106902121, guid: 0dd95543b0053ff4cbcd55ad82ee501f, type: 3}
       propertyPath: m_LocalPosition.x
