@@ -14,6 +14,8 @@ namespace Assets.Game.Code.UI
         [SerializeField]
         private string firstLevel;
 
+        private Coroutine creditsCoroutine;
+
         private void Awake()
         {
             fade.FadeOut();
@@ -32,7 +34,12 @@ namespace Assets.Game.Code.UI
 
         public void Credits()
         {
-            print("Credits");
+            if (creditsCoroutine != null)
+            {
+                StopCoroutine(creditsCoroutine);
+            }
+
+            creditsCoroutine = StartCoroutine(CreditsShowCoroutine());
         }
 
         public void Exit()
@@ -40,14 +47,36 @@ namespace Assets.Game.Code.UI
             Application.Quit();
         }
 
+        public void CloseCredits()
+        {
+            if (creditsCoroutine != null)
+            {
+                StopCoroutine(creditsCoroutine);
+            }
+
+            creditsCoroutine = StartCoroutine(CreditsHideCoroutine());
+        }
+
         private IEnumerator CreditsShowCoroutine()
         {
-            yield return new WaitForSeconds(0.01f);
+            creditsPanel.blocksRaycasts = true;
+
+            while (creditsPanel.alpha < 1f)
+            {
+                yield return new WaitForSeconds(0.01f);
+                creditsPanel.alpha += 0.04f;
+            }
         }
 
         private IEnumerator CreditsHideCoroutine()
         {
-            yield return new WaitForSeconds(0.01f);
+            creditsPanel.blocksRaycasts = false;
+
+            while (creditsPanel.alpha > 0f)
+            {
+                yield return new WaitForSeconds(0.01f);
+                creditsPanel.alpha -= 0.04f;
+            }
         }
     }
 }
