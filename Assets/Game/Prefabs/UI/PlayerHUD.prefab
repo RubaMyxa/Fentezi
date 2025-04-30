@@ -575,7 +575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 776.9, y: 482.5}
+  m_AnchoredPosition: {x: 776.9, y: 378.5}
   m_SizeDelta: {x: 366.1953, y: 75}
   m_Pivot: {x: 0.5, y: 0.49999973}
 --- !u!114 &4140032940323450611
@@ -1195,7 +1195,7 @@ GameObject:
   - component: {fileID: 3842670987222261827}
   - component: {fileID: 8641771212965909460}
   m_Layer: 5
-  m_Name: PlayerGoals (1)
+  m_Name: PlayerGoals2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1219,7 +1219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 776.9, y: 407.5}
+  m_AnchoredPosition: {x: 776.9, y: 303.5}
   m_SizeDelta: {x: 366.1953, y: 75}
   m_Pivot: {x: 0.5, y: 0.49999976}
 --- !u!114 &8641771212965909460

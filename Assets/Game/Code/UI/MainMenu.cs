@@ -8,6 +8,9 @@ namespace Assets.Game.Code.UI
     public class MainMenu : MonoBehaviour
     {
         [SerializeField]
+        private GameObject soundManager;
+        [Space]
+        [SerializeField]
         private CanvasGroup creditsPanel;
         [SerializeField]
         private FadeInOut fade;
@@ -22,6 +25,9 @@ namespace Assets.Game.Code.UI
 
             creditsPanel.alpha = 0f;
             creditsPanel.blocksRaycasts = false;
+
+            GameObject sm = Instantiate(soundManager);
+            DontDestroyOnLoad(sm);
         }
 
         public void Play()

@@ -1989,6 +1989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b869ab7c2c71a4fbc516b2ab096387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 2992388457673554087, guid: 3c1bdef0612cdfe45b21400d3958cf34, type: 3}
   creditsPanel: {fileID: 1116990509}
   fade: {fileID: 165761547}
   firstLevel: Level1 (Dungeon)
