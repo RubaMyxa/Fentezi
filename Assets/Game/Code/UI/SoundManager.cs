@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets.Game.Code.UI
@@ -31,6 +32,8 @@ namespace Assets.Game.Code.UI
             }
 
             audioTrack.mute = !musicPlaying;
+
+            EventSystem.current.SetSelectedGameObject(null);
         }
     }
 }

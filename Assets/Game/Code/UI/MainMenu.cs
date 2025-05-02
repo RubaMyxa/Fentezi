@@ -1,7 +1,10 @@
 using Assets.Game.Code.Effects;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Assets.Game.Code.UI
 {
@@ -9,6 +12,15 @@ namespace Assets.Game.Code.UI
     {
         [SerializeField]
         private GameObject soundManager;
+        [Space]
+        [SerializeField]
+        private Image toggleTutorialBackground;
+        [SerializeField]
+        private TextMeshProUGUI toggleTutorialText;
+        [SerializeField]
+        private Sprite tutorialOnBackground;
+        [SerializeField]
+        private Sprite tutorialOffBackground;
         [Space]
         [SerializeField]
         private CanvasGroup creditsPanel;
@@ -19,12 +31,16 @@ namespace Assets.Game.Code.UI
 
         private Coroutine creditsCoroutine;
 
+        public static bool ToggleTutorial = true;
+
         private void Awake()
         {
             fade.FadeOut();
 
             creditsPanel.alpha = 0f;
             creditsPanel.blocksRaycasts = false;
+
+            UpdateButtonData();
 
             GameObject sm = Instantiate(soundManager);
             DontDestroyOnLoad(sm);
@@ -61,6 +77,29 @@ namespace Assets.Game.Code.UI
             }
 
             creditsCoroutine = StartCoroutine(CreditsHideCoroutine());
+        }
+
+        public void SwitchTutorial()
+        {
+            ToggleTutorial = !ToggleTutorial;
+
+            UpdateButtonData();
+
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
+        private void UpdateButtonData()
+        {
+            if (ToggleTutorial)
+            {
+                toggleTutorialBackground.sprite = tutorialOnBackground;
+                toggleTutorialText.text = "Tutorial ON";
+            }
+            else
+            {
+                toggleTutorialBackground.sprite = tutorialOffBackground;
+                toggleTutorialText.text = "Tutorial OFF";
+            }
         }
 
         private IEnumerator CreditsShowCoroutine()
