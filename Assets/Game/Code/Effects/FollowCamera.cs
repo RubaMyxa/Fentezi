@@ -10,7 +10,7 @@ namespace Assets.Game.Code.Effects
         [Range(0f, 1f)]
         private float smoothTime;
 
-        private Vector3 offset = new Vector3(0, 0, -10);
+        private Vector3 offset = new Vector3(0, 2f, -10f);
         private Vector3 velocity = Vector3.zero;
 
         private void LateUpdate()
