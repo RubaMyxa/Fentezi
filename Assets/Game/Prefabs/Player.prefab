@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614025eb2e37761428a138aefb4739d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerHud: {fileID: 3312694154860447887, guid: 0218a836af9acd3428301ebfca3138a7, type: 3}
   hitPoint: {fileID: 7301700049150174360}
   hittableLayer:
     serializedVersion: 2

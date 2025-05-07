@@ -39,4 +39,12 @@ namespace Assets.Game.Code
         Single,
         Multiple
     }
+
+    public enum ControllerHudButton
+    {
+        Left,
+        Right,
+        Jump,
+        Attack
+    }
 }

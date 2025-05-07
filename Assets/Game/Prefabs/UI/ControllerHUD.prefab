@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7118463108737996212}
   - component: {fileID: 9085946531091697234}
   - component: {fileID: 2733650958248112300}
+  - component: {fileID: 4185250465555161650}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4185250465555161650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2447178327793382439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee59694fbbf3b8d4db3f5d3c99941c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerHudButton: 1
 --- !u!1 &3149869321848370116
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +100,7 @@ GameObject:
   - component: {fileID: 1110444931810291773}
   - component: {fileID: 2931094110714421842}
   - component: {fileID: 3445235875308231834}
+  - component: {fileID: 1188498631147709800}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -150,6 +165,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1188498631147709800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149869321848370116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee59694fbbf3b8d4db3f5d3c99941c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerHudButton: 0
 --- !u!1 &3312694154860447887
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +190,7 @@ GameObject:
   - component: {fileID: 3045150372045854166}
   - component: {fileID: 6765595128903186141}
   - component: {fileID: 3386288506275691736}
+  - component: {fileID: 954281147693248448}
   m_Layer: 5
   m_Name: ControllerHUD
   m_TagString: Untagged
@@ -252,6 +281,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &954281147693248448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3312694154860447887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffdda2a94c8fbb048ae6a34c3e360be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButton: {fileID: 1188498631147709800}
+  rightButton: {fileID: 4185250465555161650}
+  jumpButton: {fileID: 4863960952883354951}
+  attackButton: {fileID: 6647505620737040993}
 --- !u!1 &5237812269124938647
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +308,7 @@ GameObject:
   - component: {fileID: 9029629543907253276}
   - component: {fileID: 7104876849319172942}
   - component: {fileID: 7520562806884097837}
+  - component: {fileID: 4863960952883354951}
   m_Layer: 5
   m_Name: Jump
   m_TagString: Untagged
@@ -327,6 +373,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4863960952883354951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237812269124938647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee59694fbbf3b8d4db3f5d3c99941c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerHudButton: 2
 --- !u!1 &7115369388871649177
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +397,7 @@ GameObject:
   - component: {fileID: 9214247484505184131}
   - component: {fileID: 1020983138228159058}
   - component: {fileID: 4086460150516876929}
+  - component: {fileID: 6647505620737040993}
   m_Layer: 5
   m_Name: Attack
   m_TagString: Untagged
@@ -402,6 +462,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6647505620737040993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115369388871649177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee59694fbbf3b8d4db3f5d3c99941c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerHudButton: 3
 --- !u!1 &9174843020821894132
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,8 +505,8 @@ RectTransform:
   m_Children:
   - {fileID: 1110444931810291773}
   - {fileID: 7118463108737996212}
-  - {fileID: 9214247484505184131}
   - {fileID: 9029629543907253276}
+  - {fileID: 9214247484505184131}
   m_Father: {fileID: 2759515597811240786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

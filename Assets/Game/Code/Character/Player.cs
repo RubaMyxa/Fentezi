@@ -1,5 +1,6 @@
 using Assets.Game.Code.Interfaces;
 using Assets.Game.Code.Props;
+using Assets.Game.Code.UI;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace Assets.Game.Code.Character
 {
     public class Player : MonoBehaviour, IDieble
     {
+        [SerializeField]
+        private GameObject controllerHud;
         [SerializeField]
         private Transform hitPoint;
         [SerializeField]
@@ -35,6 +38,11 @@ namespace Assets.Game.Code.Character
         private int defeatEnemies = 0;
         private int keys = 0;
 
+        // Controllers
+        public int Horizontal { get; set; } = 0;
+        public bool Jump { get; set; } = false;
+        public bool AttackAction { get; set; } = false;
+
         public int GetHp => hp;
         public int GetCoin => coin;
         public int GetDefeatEnemys => defeatEnemies;
@@ -50,6 +58,9 @@ namespace Assets.Game.Code.Character
             characterController = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
             rigidbody = GetComponent<Rigidbody2D>();
+
+            GameObject hud = Instantiate(controllerHud);
+            hud.GetComponent<ControllerHud>().Construct(this);
         }
 
         private void Update()
@@ -90,12 +101,13 @@ namespace Assets.Game.Code.Character
                 return;
             }
 
-            float horizonal = Input.GetAxis("Horizontal"); // -1 to 1
-            bool jump = Input.GetKeyDown("space");
+            //float horizonal = Input.GetAxis("Horizontal"); // -1 to 1
+            //bool jump = Input.GetKeyDown("space");
 
-            animator.SetFloat(HorizontalHash, Mathf.Abs(horizonal));
+            animator.SetFloat(HorizontalHash, Mathf.Abs(Horizontal));
 
-            characterController.Move(horizonal, jump);
+            characterController.Move(Horizontal, Jump);
+            Jump = false;
         }
 
         private void Attack()
@@ -105,9 +117,11 @@ namespace Assets.Game.Code.Character
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && animator.GetCurrentAnimatorStateInfo(0).fullPathHash != AttackHash)
+            if (/*Input.GetKeyDown(KeyCode.Mouse0)*/AttackAction && animator.GetCurrentAnimatorStateInfo(0).fullPathHash != AttackHash)
             {
                 animator.SetTrigger(AttackHash);
+
+                AttackAction = false;
             }
         }
 
