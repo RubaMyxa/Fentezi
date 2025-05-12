@@ -94,7 +94,7 @@ namespace Assets.Game.Code.AI.Enemys.Bat
             if (!isAlive) return DefeatedObject.None;
 
             hp -= damage;
-            if (hp < 0)
+            if (hp <= 0)
             {
                 hp = 0;
                 Die();

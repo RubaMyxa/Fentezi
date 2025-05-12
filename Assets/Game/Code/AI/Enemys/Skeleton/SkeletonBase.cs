@@ -111,7 +111,7 @@ namespace Assets.Game.Code.AI.Enemys.Skeleton
             if (GetSetBehaviourAI == BehaviourAI.Die) return DefeatedObject.None;
 
             currentHp -= damage;
-            if(currentHp < 0)
+            if(currentHp <= 0)
             {
                 currentHp = 0;
                 Die();
